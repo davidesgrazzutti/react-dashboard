@@ -1,20 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GridLayout, { Layout } from "react-grid-layout";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 import "./App.css";
 
-const initialLayout: Layout[] = [
-  { i: "widget1", x: 0,  y: 0, w: 6, h: 4 },  // Alto sinistra
-  { i: "widget2", x: 6,  y: 0, w: 6, h: 4 },  // Alto destra
+const LAYOUT_KEY = "dashboard-layout";
 
-  { i: "widget3", x: 0,  y: 4, w: 6, h: 4 },  // Basso sinistra
-  { i: "widget4", x: 6,  y: 4, w: 6, h: 4 },  // Basso destra
+// Layout di default (2x2)
+const defaultLayout: Layout[] = [
+  { i: "widget1", x: 0, y: 0, w: 6, h: 4, minW: 3, maxW: 6, minH: 3 },
+  { i: "widget2", x: 6, y: 0, w: 6, h: 4, minW: 3, maxW: 6, minH: 3 },
+
+  { i: "widget3", x: 0, y: 4, w: 6, h: 4, minW: 3, maxW: 6, minH: 3 },
+  { i: "widget4", x: 6, y: 4, w: 6, h: 4, minW: 3, maxW: 6, minH: 3 },
 ];
 
-
 const App: React.FC = () => {
-  const [layout, setLayout] = useState<Layout[]>(initialLayout);
+  // Carico da localStorage se esiste, altrimenti default
+  const [layout, setLayout] = useState<Layout[]>(() => {
+    const saved = localStorage.getItem(LAYOUT_KEY);
+    if (saved) {
+      try {
+        return JSON.parse(saved) as Layout[];
+      } catch {
+        return defaultLayout;
+      }
+    }
+    return defaultLayout;
+  });
+
+  // larghezza = 97% della finestra
+  const [width, setWidth] = useState<number>(window.innerWidth * 0.97);
+
+  useEffect(() => {
+    const onResize = () => setWidth(window.innerWidth * 0.97);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  const handleLayoutChange = (newLayout: Layout[]) => {
+    setLayout(newLayout);
+    localStorage.setItem(LAYOUT_KEY, JSON.stringify(newLayout));
+  };
 
   return (
     <div className="app">
@@ -24,9 +51,12 @@ const App: React.FC = () => {
         className="layout"
         layout={layout}
         cols={12}
-        rowHeight={30}
-        width={1200}
-        onLayoutChange={(newLayout) => setLayout(newLayout)}
+        rowHeight={40}
+        width={width}
+        isDraggable={true}
+        isResizable={true}
+        resizeHandles={["se"]}
+        onLayoutChange={handleLayoutChange}
         draggableHandle=".widget-header"
       >
         <div key="widget1" className="widget">
