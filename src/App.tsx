@@ -4,6 +4,7 @@ import WeatherWidget from "./WeatherWidget";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 import "./App.css";
+import GmailWidget from "./GmailWidget";
 
 const LAYOUT_KEY = "dashboard-layout";
 
@@ -30,7 +31,7 @@ const App: React.FC = () => {
     return defaultLayout;
   });
 
-  // larghezza = 97% della finestra
+  // larghezza = 98% della finestra
   const [width, setWidth] = useState<number>(window.innerWidth * 0.98);
 
   useEffect(() => {
@@ -61,8 +62,10 @@ const App: React.FC = () => {
         draggableHandle=".widget-header"
       >
         <div key="widget1" className="widget">
-          <div className="widget-header">Widget 1</div>
-          <div className="widget-body">Contenuto widget 1</div>
+          <div className="widget-header">Gmail</div>
+          <div className="widget-body">
+            <GmailWidget />
+          </div>
         </div>
 
         <div key="widget2" className="widget">
@@ -71,8 +74,6 @@ const App: React.FC = () => {
             <WeatherWidget />
           </div>
         </div>
-
-
 
         <div key="widget3" className="widget">
           <div className="widget-header">Widget 3</div>

@@ -9,6 +9,7 @@ interface WeatherData {
 }
 
 const API_KEY = process.env.REACT_APP_WEATHER_KEY!;
+console.log("API_KEY WEATHER =", API_KEY);
 
 
 const WeatherWidget: React.FC = () => {
