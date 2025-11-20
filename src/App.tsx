@@ -8,11 +8,11 @@ const LAYOUT_KEY = "dashboard-layout";
 
 // Layout di default (2x2)
 const defaultLayout: Layout[] = [
-  { i: "widget1", x: 0, y: 0, w: 6, h: 4, minW: 3, maxW: 6, minH: 3 },
-  { i: "widget2", x: 6, y: 0, w: 6, h: 4, minW: 3, maxW: 6, minH: 3 },
+  { i: "widget1", x: 0, y: 0, w: 5, h: 4, minW: 3, maxW: 5, minH: 3 },
+  { i: "widget2", x: 6, y: 0, w: 5, h: 4, minW: 3, maxW: 5, minH: 3 },
 
-  { i: "widget3", x: 0, y: 4, w: 6, h: 4, minW: 3, maxW: 6, minH: 3 },
-  { i: "widget4", x: 6, y: 4, w: 6, h: 4, minW: 3, maxW: 6, minH: 3 },
+  { i: "widget3", x: 0, y: 4, w: 5, h: 4, minW: 3, maxW: 5, minH: 3 },
+  { i: "widget4", x: 6, y: 4, w: 5, h: 4, minW: 3, maxW: 5, minH: 3 },
 ];
 
 const App: React.FC = () => {
@@ -30,10 +30,10 @@ const App: React.FC = () => {
   });
 
   // larghezza = 97% della finestra
-  const [width, setWidth] = useState<number>(window.innerWidth * 0.97);
+  const [width, setWidth] = useState<number>(window.innerWidth * 0.98);
 
   useEffect(() => {
-    const onResize = () => setWidth(window.innerWidth * 0.97);
+    const onResize = () => setWidth(window.innerWidth * 0.98);
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
