@@ -31,6 +31,3 @@
   - intervallo date (`after: yyyy/mm/dd before: yyyy/mm/dd`)
 - Pannellino dropdown elegante stile Gmail mini
 - Risultati che aggiornano la lista in tempo reale
-
----
-##  4. Caricare Backend
