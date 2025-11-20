@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
   min-height: 100vh;
+  padding: 20px;
+  /* flex-direction: column;
+  align-items: center; */
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center; /* necessario */
+}
+
+.layout {
+  background: #020617;
+  padding: 10px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  width: 1200px;     /* larghezza fissa */
+  margin: 0 auto;    /* CENTRAMENTO */
+}
+
+
+
+/* Ogni widget */
+.widget {
+  background: #0b1120;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  overflow: hidden;
+  border: 1px solid #1e293b;
+}
+
+/* Header che fa da maniglia per il drag */
+.widget-header {
+  padding: 8px 12px;
+  font-weight: 600;
+  font-size: 14px;
+  background: linear-gradient(to right, #1d4ed8, #0ea5e9);
   color: white;
+  cursor: move;
 }
 
-.App-link {
-  color: #61dafb;
+/* Corpo del widget */
+.widget-body {
+  padding: 12px;
+  font-size: 14px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Hover carino */
+.widget:hover {
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
 }
