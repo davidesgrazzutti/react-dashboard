@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import GridLayout, { Layout } from "react-grid-layout";
+import WeatherWidget from "./WeatherWidget";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 import "./App.css";
@@ -45,7 +46,7 @@ const App: React.FC = () => {
 
   return (
     <div className="app">
-      <h1 className="title">Dashboard (CRA + TypeScript)</h1>
+      <h1 className="title">Interactive Dashboard</h1>
 
       <GridLayout
         className="layout"
@@ -55,7 +56,7 @@ const App: React.FC = () => {
         width={width}
         isDraggable={true}
         isResizable={true}
-        resizeHandles={["se"]}
+        resizeHandles={["se", "sw"]}
         onLayoutChange={handleLayoutChange}
         draggableHandle=".widget-header"
       >
@@ -65,9 +66,13 @@ const App: React.FC = () => {
         </div>
 
         <div key="widget2" className="widget">
-          <div className="widget-header">Widget 2</div>
-          <div className="widget-body">Contenuto widget 2</div>
+          <div className="widget-header">Meteo</div>
+          <div className="widget-body">
+            <WeatherWidget />
+          </div>
         </div>
+
+
 
         <div key="widget3" className="widget">
           <div className="widget-header">Widget 3</div>
