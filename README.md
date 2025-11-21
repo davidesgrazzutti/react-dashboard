@@ -1,6 +1,11 @@
 # 🔥 To-Do (Gmail Widget)
 
-## ✅ 1. Mark Read / Unread
+##  1. Refresh widget
+- Refresh widget per vedere se ci sono nuove email
+
+---
+
+## ✅ 2. Mark Read / Unread
 - Endpoint backend `mark-read`
 - Endpoint backend `mark-unread`
 - UI: testo **bold** per non lette, normale per lette
@@ -9,7 +14,7 @@
 
 ---
 
-## 🗑️ 2. Delete (sposta nel Cestino)
+## 🗑️ 3. Delete (sposta nel Cestino)
 - Backend: `ModifyMessageRequest` con `AddLabelIds = ["TRASH"]`
 - UI: rimuove subito l’email dalla lista
 - Opzionale: popup “Vuoi eliminare?”
@@ -17,7 +22,7 @@
 
 ---
 
-## 🔍 3. Ricerca avanzata
+## 🔍 4. Ricerca avanzata
 ### Funzionalità previste:
 - Campo ricerca con **debounce**
 - Ricerca per:
