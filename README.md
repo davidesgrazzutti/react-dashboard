@@ -1,3 +1,31 @@
+# Dashboard .NET + React (Gmail Dashboard)
+
+Questa è una dashboard ibrida sviluppata con **.NET** per il backend e **React** per il frontend.  
+L'app mostra widget dinamici e permette la connessione a **Gmail** tramite OAuth per visualizzare email e informazioni dell’account.  
+Il progetto è pensato come base espandibile per creare una dashboard personale con componenti modulari.
+
+---
+![dashboard](https://github.com/user-attachments/assets/ec0f2c47-b039-46b7-be54-531209ba01e8)
+---
+
+## 🛠️ Tecnologie Utilizzate
+
+### **Backend (.NET)**
+- .NET / ASP.NET Core Web API  
+- C#  
+- REST API  
+
+### **Frontend (React)**
+- React  
+- JavaScript / TypeScript  
+- Axios per comunicazione con l’API  
+- HTML / CSS  
+
+---
+
+
+
+
 # 🔥 To-Do (Gmail Widget)
 
 ##  1. Refresh widget
